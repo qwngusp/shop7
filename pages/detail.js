@@ -76,14 +76,16 @@ const DetailPage = (() => {
           <h1 class="detail-name">${p.name} ${p.capacity}</h1>
           <span class="detail-per-unit">(${p.pricePerUnit})</span>
         </div>
-        <div class="detail-rating-row">
-          <span style="color:var(--star);font-size:13px;">★★★★★</span>
-          <strong>${p.rating}</strong>
-          <span class="detail-review-count">(리뷰 ${p.reviewCount.toLocaleString()}개)</span>
-        </div>
         <div class="detail-price-wrap" id="detail-price-wrap">
           ${priceHTML(applied)}
         </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <!-- 쿠폰 영역 -->
+      <div class="detail-coupon-row" id="detail-coupon-row">
+        ${couponRowHTML(applied)}
       </div>
 
       <div class="divider"></div>
@@ -94,13 +96,6 @@ const DetailPage = (() => {
           <p class="detail-delivery-addr">- 배송 받을 주소 › <strong>우리집</strong></p>
           <p class="detail-delivery-note">- ${p.shipping} </p>
         </div>
-      </div>
-
-      <div class="divider"></div>
-
-      <!-- 쿠폰 영역 -->
-      <div class="detail-coupon-row" id="detail-coupon-row">
-        ${couponRowHTML(applied)}
       </div>
 
       <div class="divider"></div>
@@ -170,7 +165,7 @@ const DetailPage = (() => {
     }
     return `
       <span class="detail-coupon-label">쿠폰</span>
-      <button class="detail-coupon-btn" id="btn-open-coupon">쿠폰 적용 <span>›</span></button>
+      <button class="detail-coupon-btn" id="btn-open-coupon"><span>✅</span> 쿠폰 적용하기 </button>
     `;
   };
 

@@ -273,8 +273,8 @@
 .product-row__original { font-size: 11px; color: var(--text-muted); text-decoration: line-through; }
 .product-row__per-unit { font-size: 13px; }
 .product-row__shipping {
-  font-size: 12px;
-  color: #eee;
+  font-size: 13px;
+  color: #eceaea;
 }
 .product-row__shipping strong {
   font-weight: 800;
@@ -416,12 +416,12 @@
 }
 
 .detail-delivery-addr {
-  font-size: 12px;
+  font-size: 14px;
 }
 
 .detail-delivery-note {
-  font-size: 12px;
-  color: #eee;
+  font-size: 14px;
+  color: #eceaea;
 }
 
 /* ── 결제 처리중 오버레이 ── */
@@ -515,7 +515,8 @@
   justify-content: center;
   border-radius: var(--radius-full);
   align-self: flex-start;
-  margin-top: 2px;
+  margin-top: 0;
+  margin-left: auto;
 }
 .cart-item__delete:active { background: var(--bg-gray); }
 
@@ -1033,24 +1034,11 @@
   margin-bottom: 4px;
 }
 
-.detail-name-row {
-  display: flex;
-  align-items: flex-end;
-  gap: 8px;
-  margin-bottom: 12px;
-}
-
 .detail-name {
   font-size: 17px;
   font-weight: 700;
   line-height: 1.4;
-}
-
-.detail-per-unit {
-  font-size: 12px;
-  /* color: var(--text-muted); */
-  white-space: nowrap;
-  padding-bottom: 3px;
+  margin-bottom: 10px;
 }
 
 .detail-rating-row {
@@ -1064,6 +1052,20 @@
 .detail-rating-row .stars { font-size: 13px; }
 
 .detail-review-count {  }
+
+.detail-per-unit {
+  font-size: 16px;
+  /* color: var(--text-muted); */
+  white-space: nowrap;
+  align-self: flex-end;
+  margin-bottom: 10px;
+}
+
+.detail-name-row {
+  display: flex;
+  align-items: flex-end;
+  gap: 8px;
+}
 
 .detail-price-wrap { margin-bottom: 8px; }
 
@@ -1101,7 +1103,8 @@
 .detail-coupon-row {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-start;
+  gap: 55px;
   padding: 14px var(--space-md);
 }
 
@@ -1111,9 +1114,9 @@
 }
 
 .detail-coupon-btn {
-  font-size: 13px;
-  color: var(--accent);
-  font-weight: 600;
+  font-size: 14px;
+  /* color: var(--accent); */
+  /* font-weight: 600; */
 }
 
 .detail-section {
@@ -1334,6 +1337,7 @@
 .cart-item {
   display: flex;
   gap: var(--space-md);
+  align-items: flex-start;
 }
 
 .cart-item__img-wrap {
