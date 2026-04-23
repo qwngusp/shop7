@@ -4,7 +4,17 @@ const DetailPage = (() => {
   const COUPON_RATE = 0.1;          // 쿠폰 할인율 10%
   const COUPON = { id: 'COUPON_10PCT', label: '10% 할인', name: '쇼핑 할인 쿠폰' };
 
-  let currentProduct = null;
+  // 상품별 배송비 색상 설정 (T4 조건 조작)
+  // p001=C단품(6위,강도1), p002=B묶음(3위,강도2), p003=A단품(4위,강도2)
+  // p004=A묶음(1위,강도3), p005=C묶음(2위,강도2), p006=B단품(5위,강도2)
+  const SHIPPING_COLOR = {
+    'p001': '#6e6e6e',
+    'p002': '#b4b3b3',
+    'p003': '#b4b3b3',
+    'p004': '#eee',
+    'p005': '#b4b3b3',
+    'p006': '#a8a8a8',
+  };
   let selectedOption = null;
   let quantity = 1;
 
@@ -19,8 +29,8 @@ const DetailPage = (() => {
   };
   const isCouponApplied = (productId) => !!getAppliedMap()[productId];
 
-  // 상품의 기준 가격 (discountedPrice 사용)
-  const getBasePrice = () => currentProduct.discountedPrice;
+  // 상품의 기준 가격 (originalPrice 사용)
+  const getBasePrice = () => currentProduct.originalPrice;
 
   const getCurrentPrice = () =>
     isCouponApplied(currentProduct.id)
@@ -94,7 +104,7 @@ const DetailPage = (() => {
         <span class="detail-delivery-label">배송 정보</span>
         <div class="detail-delivery-info">
           <p class="detail-delivery-addr">- 배송 받을 주소 › <strong>우리집</strong></p>
-          <p class="detail-delivery-note">- ${p.shipping} </p>
+          <p class="detail-delivery-note" style="color:${SHIPPING_COLOR[p.id] || '#111111'};">- ${p.shipping}</p>
         </div>
       </div>
 
@@ -135,7 +145,7 @@ const DetailPage = (() => {
       const discounted = Math.floor(basePrice * (1 - COUPON_RATE));
       return `
         <div class="detail-price-row">
-          <span class="detail-discount-rate">${currentProduct.discountRate + COUPON_RATE * 100}%</span>
+          <span class="detail-discount-rate">${COUPON_RATE * 100}%</span>
           <span class="detail-price">${discounted.toLocaleString()}원</span>
         </div>
         <div style="display:flex;align-items:center;gap:8px;margin-top:2px;">
@@ -146,11 +156,7 @@ const DetailPage = (() => {
     }
     return `
       <div class="detail-price-row">
-        <span class="detail-discount-rate">${currentProduct.discountRate}%</span>
         <span class="detail-price">${basePrice.toLocaleString()}원</span>
-      </div>
-      <div style="margin-top:2px;">
-        <span class="detail-original-price">${currentProduct.originalPrice.toLocaleString()}원</span>
       </div>
     `;
   };

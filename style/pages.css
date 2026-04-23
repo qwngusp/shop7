@@ -268,13 +268,11 @@
 }
 .product-row__capacity { font-size: 12px; color: var(--text-muted); }
 .product-row__price-row { display: flex; align-items: baseline; gap: 5px; margin-top: 4px; }
-.product-row__discount { font-size: 15px; font-weight: 800; color: var(--primary); }
 .product-row__price { font-size: 16px; font-weight: 800; color: var(--text-primary); }
-.product-row__original { font-size: 11px; color: var(--text-muted); text-decoration: line-through; }
 .product-row__per-unit { font-size: 13px; }
 .product-row__shipping {
-  font-size: 13px;
-  color: #eceaea;
+  font-size: 15px;
+  /* color: var(--text-secondary); */
 }
 .product-row__shipping strong {
   font-weight: 800;
@@ -421,7 +419,7 @@
 
 .detail-delivery-note {
   font-size: 14px;
-  color: #eceaea;
+  /* color: var(--text-secondary); */
 }
 
 /* ── 결제 처리중 오버레이 ── */
@@ -1058,6 +1056,7 @@
   /* color: var(--text-muted); */
   white-space: nowrap;
   align-self: flex-end;
+  /* padding-bottom: 3px; */
   margin-bottom: 10px;
 }
 
