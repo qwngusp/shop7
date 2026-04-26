@@ -8,12 +8,12 @@ const DetailPage = (() => {
   // p001=C단품(6위,강도1), p002=B묶음(3위,강도2), p003=A단품(4위,강도2)
   // p004=A묶음(1위,강도3), p005=C묶음(2위,강도2), p006=B단품(5위,강도2)
   const SHIPPING_COLOR = {
-    'p001': '#6e6e6e',
-    'p002': '#b4b3b3',
-    'p003': '#b4b3b3',
-    'p004': '#eee',
-    'p005': '#b4b3b3',
-    'p006': '#a8a8a8',
+    'p001': '#ddd',
+    'p002': '#ddd',
+    'p003': '#ddd',
+    'p004': '#ddd',
+    'p005': '#ddd',
+    'p006': '#ddd',
   };
   let selectedOption = null;
   let quantity = 1;
